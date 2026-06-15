@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Menu, X, TrendingUp } from 'lucide-react';
+import { Menu, X, TrendingUp, BarChart2 } from 'lucide-react';
+import { useProgress } from '@/context/ProgressContext';
 
 const navLinks = [
   { label: 'Home', href: '/' },
@@ -15,6 +16,7 @@ const navLinks = [
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { totalCompleted } = useProgress();
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a1628] shadow-lg">
@@ -43,8 +45,20 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* CTA + Dashboard */}
+          <div className="hidden md:flex items-center gap-3">
+            <Link
+              href="/dashboard"
+              className="relative flex items-center gap-1.5 text-gray-300 hover:text-[#f5a623] text-sm font-medium transition-colors"
+            >
+              <BarChart2 className="w-4 h-4" />
+              My Progress
+              {totalCompleted > 0 && (
+                <span className="bg-[#f5a623] text-[#0a1628] text-xs font-bold px-1.5 py-0.5 rounded-full leading-none">
+                  {totalCompleted}
+                </span>
+              )}
+            </Link>
             <Link
               href="/courses"
               className="bg-[#f5a623] text-[#0a1628] font-semibold text-sm px-5 py-2 rounded-full hover:bg-[#fbbf47] transition-colors duration-200"
@@ -76,6 +90,13 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
+          <Link
+            href="/dashboard"
+            onClick={() => setMenuOpen(false)}
+            className="block text-gray-300 hover:text-[#f5a623] font-medium py-1 flex items-center gap-2"
+          >
+            <BarChart2 className="w-4 h-4" /> My Progress {totalCompleted > 0 && `(${totalCompleted})`}
+          </Link>
           <Link
             href="/courses"
             onClick={() => setMenuOpen(false)}
