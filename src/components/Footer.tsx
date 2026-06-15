@@ -1,28 +1,30 @@
 import Link from 'next/link';
-import { TrendingUp, Mail, Phone, MapPin, Share2 } from 'lucide-react';
+import Image from 'next/image';
+import { Mail, Phone, MapPin } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0a1628] text-gray-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <footer className="bg-[#0a1628] text-gray-400 border-t border-white/5">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
-          <div>
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-[#f5a623] rounded-full flex items-center justify-center">
-                <TrendingUp className="w-5 h-5 text-[#0a1628]" />
-              </div>
-              <span className="text-white font-bold text-xl">
-                Cent<span className="text-[#f5a623]">sible</span>
-              </span>
+          <div className="lg:col-span-1">
+            <Link href="/" className="flex items-center gap-3 mb-5">
+              <Image src="/centsible-logo.svg" alt="Centsible" width={44} height={44} className="rounded-full" />
+              <span className="text-white font-bold text-xl tracking-tight">Centsible</span>
             </Link>
-            <p className="text-sm text-gray-400 leading-relaxed mb-5">
-              Empowering the next generation with the financial knowledge they need to thrive.
+            <p className="text-sm text-gray-500 leading-relaxed mb-6">
+              Empowering the next generation with the financial knowledge they need to build a secure future.
             </p>
-            <div className="flex gap-4">
-              {['Instagram', 'X (Twitter)', 'LinkedIn'].map((s) => (
-                <a key={s} href="#" aria-label={s} className="hover:text-[#f5a623] transition-colors">
-                  <Share2 className="w-5 h-5" />
+            <div className="flex gap-3">
+              {['Instagram', 'X', 'LinkedIn'].map((s) => (
+                <a
+                  key={s}
+                  href="#"
+                  aria-label={s}
+                  className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-xs font-bold text-gray-400 hover:bg-[#f5a623]/10 hover:text-[#f5a623] hover:border-[#f5a623]/30 transition-all"
+                >
+                  {s[0]}
                 </a>
               ))}
             </div>
@@ -30,11 +32,11 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-sm">
-              {[['Home', '/'], ['Courses', '/courses'], ['Games', '/games'], ['Resources', '/resources'], ['About', '/about'], ['Contact', '/contact']].map(([label, href]) => (
+            <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-widest">Navigate</h4>
+            <ul className="space-y-3 text-sm">
+              {[['Home', '/'], ['Courses', '/courses'], ['Games', '/games'], ['Resources', '/resources'], ['About', '/about'], ['Contact', '/contact'], ['My Progress', '/dashboard']].map(([label, href]) => (
                 <li key={href}>
-                  <Link href={href} className="hover:text-[#f5a623] transition-colors">{label}</Link>
+                  <Link href={href} className="hover:text-white transition-colors">{label}</Link>
                 </li>
               ))}
             </ul>
@@ -42,20 +44,20 @@ export default function Footer() {
 
           {/* Courses */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Courses</h4>
-            <ul className="space-y-2 text-sm">
-              <li><Link href="/courses#foundation" className="hover:text-[#f5a623] transition-colors">Foundation</Link></li>
-              <li><Link href="/courses#growth" className="hover:text-[#f5a623] transition-colors">Growth</Link></li>
-              <li><Link href="/courses#security" className="hover:text-[#f5a623] transition-colors">Security</Link></li>
-              <li><Link href="/games" className="hover:text-[#f5a623] transition-colors">Games & Simulations</Link></li>
-              <li><Link href="/resources" className="hover:text-[#f5a623] transition-colors">Resource Library</Link></li>
+            <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-widest">Courses</h4>
+            <ul className="space-y-3 text-sm">
+              <li><Link href="/courses#foundation" className="hover:text-white transition-colors">Foundation Track</Link></li>
+              <li><Link href="/courses#growth" className="hover:text-white transition-colors">Growth Track</Link></li>
+              <li><Link href="/courses#security" className="hover:text-white transition-colors">Security Track</Link></li>
+              <li><Link href="/games" className="hover:text-white transition-colors">Games & Simulations</Link></li>
+              <li><Link href="/resources" className="hover:text-white transition-colors">Resource Library</Link></li>
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Contact Us</h4>
-            <ul className="space-y-3 text-sm">
+            <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-widest">Contact</h4>
+            <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-3">
                 <Mail className="w-4 h-4 mt-0.5 text-[#f5a623] shrink-0" />
                 <span>hello@centsible.org</span>
@@ -72,11 +74,14 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-700 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-sm text-gray-500">
-          <p>© {new Date().getFullYear()} Centsible. All rights reserved.</p>
+        <div className="border-t border-white/5 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-600">
+          <div className="flex items-center gap-3">
+            <Image src="/centsible-logo.svg" alt="Centsible" width={22} height={22} className="rounded-full opacity-60" />
+            <p>© {new Date().getFullYear()} Centsible. All rights reserved.</p>
+          </div>
           <div className="flex gap-6">
-            <Link href="#" className="hover:text-gray-300">Privacy Policy</Link>
-            <Link href="#" className="hover:text-gray-300">Terms of Use</Link>
+            <Link href="#" className="hover:text-gray-400 transition-colors">Privacy Policy</Link>
+            <Link href="#" className="hover:text-gray-400 transition-colors">Terms of Use</Link>
           </div>
         </div>
       </div>

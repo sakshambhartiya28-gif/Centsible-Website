@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   BookOpen, Gamepad2, Shield, TrendingUp, Users, Star,
   ArrowRight, CheckCircle, ChevronRight, Award, Globe
@@ -79,9 +80,12 @@ export default function Home() {
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-36">
           <div className="max-w-3xl">
-            <span className="inline-block bg-[#f5a623]/20 text-[#f5a623] text-sm font-semibold px-4 py-1.5 rounded-full mb-6 border border-[#f5a623]/30">
-              Financial Literacy for the Next Generation
-            </span>
+            <div className="flex items-center gap-3 mb-6">
+              <Image src="/centsible-logo.svg" alt="Centsible" width={48} height={48} className="rounded-full" />
+              <span className="inline-block bg-[#f5a623]/20 text-[#f5a623] text-sm font-semibold px-4 py-1.5 rounded-full border border-[#f5a623]/30">
+                Financial Literacy for the Next Generation
+              </span>
+            </div>
             <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
               Your Money.{' '}
               <span className="text-[#f5a623]">Your Future.</span>{' '}
