@@ -1,9 +1,7 @@
-import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
+import { Mail, Clock, Send } from 'lucide-react';
 
 const contactInfo = [
   { icon: Mail, label: 'Email', value: 'hello@centsible.org' },
-  { icon: Phone, label: 'Phone', value: '+1 (555) 000-0000' },
-  { icon: MapPin, label: 'Location', value: 'New York, NY' },
   { icon: Clock, label: 'Response Time', value: 'Within 24 hours' },
 ];
 

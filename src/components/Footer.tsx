@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -34,7 +34,7 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-widest">Navigate</h4>
             <ul className="space-y-3 text-sm">
-              {[['Home', '/'], ['Courses', '/courses'], ['Games', '/games'], ['Resources', '/resources'], ['About', '/about'], ['Contact', '/contact'], ['My Progress', '/dashboard']].map(([label, href]) => (
+              {[['Home', '/'], ['Courses', '/courses'], ['Games', '/games'], ['Resources', '/resources'], ['Blog', '/blog'], ['About', '/about'], ['Contact', '/contact'], ['My Progress', '/dashboard']].map(([label, href]) => (
                 <li key={href}>
                   <Link href={href} className="hover:text-white transition-colors">{label}</Link>
                 </li>
@@ -62,15 +62,10 @@ export default function Footer() {
                 <Mail className="w-4 h-4 mt-0.5 text-[#f5a623] shrink-0" />
                 <span>hello@centsible.org</span>
               </li>
-              <li className="flex items-start gap-3">
-                <Phone className="w-4 h-4 mt-0.5 text-[#f5a623] shrink-0" />
-                <span>+1 (555) 000-0000</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 mt-0.5 text-[#f5a623] shrink-0" />
-                <span>New York, NY</span>
-              </li>
             </ul>
+            <div className="mt-6">
+              <Link href="/blog" className="text-sm text-gray-400 hover:text-white transition-colors">Blog & Insights →</Link>
+            </div>
           </div>
         </div>
 
